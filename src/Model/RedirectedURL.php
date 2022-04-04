@@ -129,9 +129,9 @@ class RedirectedURL extends DataObject implements PermissionProvider
                         _t(__CLASS__.'.FIELD_TITLE_REDIRECTIONTYPE', 'Redirect to'),
                         [
                             'Internal' =>
-                                _t(__CLASS__.'.FIELD_REDIRECTIONTYPE_OPTION_INTERNAL', 'A page on your website'),
+                                _t(__CLASS__.'.FIELD_REDIRECTIONTYPE_OPTION_INTERNAL', 'A page on this website'),
                             'External' =>
-                                _t(__CLASS__.'.FIELD_REDIRECTIONTYPE_OPTION_EXTERNAL', 'Another website'),
+                                _t(__CLASS__.'.FIELD_REDIRECTIONTYPE_OPTION_EXTERNAL', 'Another website (or an asset path on this website)'),
                         ],
                         'Internal'
                     ),
@@ -141,7 +141,7 @@ class RedirectedURL extends DataObject implements PermissionProvider
                     ),
                     $linkToWrapperField = Wrapper::create(TreeDropdownField::create(
                         'LinkToID',
-                        _t(__CLASS__.'.FIELD_TITLE_LINKTOID', 'Page on your website'),
+                        _t(__CLASS__.'.FIELD_TITLE_LINKTOID', 'Page on this website'),
                         SiteTree::class
                     )),
                 ]
