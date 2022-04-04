@@ -100,7 +100,7 @@ class RedirectedURLService
      * @param array $vars key value pairs
      * @return array
      */
-    protected function arrayToLowercase($vars)
+    private function arrayToLowercase($vars)
     {
         $result = array();
 
