@@ -2,6 +2,7 @@
 
 namespace SilverStripe\RedirectedURLs\Service;
 
+use BadMethodCallException;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Control\HTTPResponse;
@@ -115,7 +116,16 @@ class RedirectedURLService
         return $result;
     }
 
-    public function getRedirectCode($redirectedURL = null)
+    /**
+     * Get a RedirectedURL's redirect code.
+     * Fall back to the configured default_redirect_code if set.
+     * Fall back to 301 as the in-built default.
+     *
+     * @param mixed $redirectedURL
+     * @return int
+     * @throws BadMethodCallException
+     */
+    private function getRedirectCode($redirectedURL = null): int
     {
         if ($redirectedURL instanceof RedirectedURL) {
             if (isset($redirectedURL->RedirectCode) && intval($redirectedURL->RedirectCode) > 0) {
